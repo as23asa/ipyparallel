@@ -1,0 +1,32 @@
+import matplotlib.pyplot as plt
+
+# Define the points
+x1, y1 = 3, 5
+x2, y2 = 7, 2
+
+# Plot the points
+plt.plot(x1, y1, 'ro')  # 'ro' for red circles
+plt.plot(x2, y2, 'ro')
+
+# Calculate the slope and intercept of the line passing through the points
+m = (y2 - y1) / (x2 - x1)
+b = y1 - m * x1
+
+# Define the x values for the line
+x_values = [min(x1, x2) - 1, max(x1, x2) + 1]
+
+# Calculate corresponding y values for the line
+y_values = [m * x + b for x in x_values]
+
+# Plot the line
+plt.plot(x_values, y_values, 'b-')  # 'b-' for blue line
+
+# Set the aspect ratio to be equal
+plt.gca().set_aspect('equal', adjustable='box')
+
+# Save the plot
+plt.savefig('plot.png')  # Save as PNG file, you can change the extension if needed
+
+# Show the plot
+plt.grid(True)
+plt.show()
